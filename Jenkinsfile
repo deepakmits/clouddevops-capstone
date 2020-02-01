@@ -35,7 +35,6 @@ pipeline {
         stage('Build Image') {
             steps {
                 echo 'Building Image'
-                sh "docker run hello-world"
                 sh "docker build --tag ${CAPSTONE_ML_APP}:${VERSION} ."
                 sh 'docker images'
             }
@@ -47,7 +46,6 @@ pipeline {
             }
             steps {
                 echo 'Deploying application image to AWS ECR.'
-                sh "$(aws ecr get-login --region us-west-2 --no-include-email)"
                 sh "docker tag ${CAPSTONE_ML_APP} ${AWS_ECR_URI}:${VERSION}"
                 sh "docker push ${AWS_ECR_URI}"
             }
