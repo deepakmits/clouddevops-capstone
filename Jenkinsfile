@@ -61,6 +61,8 @@ pipeline {
             }
             steps {
                 echo 'Deploying application to AWS EKS Cluster'
+                #sh "kubectl set image deployment/ml-app ml-app=${AWS_ECR_URI}:${VERSION}"
+                #sh 'kubectl get pods'
             }
         }
     }
