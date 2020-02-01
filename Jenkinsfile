@@ -4,7 +4,7 @@ pipeline {
     environment {
         AWS_ECR_URI = "615529889392.dkr.ecr.us-west-2.amazonaws.com/deep-capstone"
         CAPSTONE_ML_APP = "capstone-ml-app"
-        VERSION = "${env.BRANCH_NAME}.${BUILD_NUMBER}"
+        VERSION = "latest"
     }
 
     stages {
