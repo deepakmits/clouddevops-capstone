@@ -23,7 +23,7 @@ pipeline {
             }
         }
         
-        stage('Linitng') {
+        stage('Lint') {
             steps {
                 echo 'Performing liniting checks.'
                 withPythonEnv('python3') {
@@ -33,7 +33,7 @@ pipeline {
             }
         }
 
-        stage('Image Build') {
+        stage('Build Image') {
             steps {
                 echo 'Image Build'
                 sh "docker build --tag ${CAPSTONE_ML_APP}:${VERSION} ."
