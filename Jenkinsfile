@@ -29,7 +29,6 @@ pipeline {
                 withPythonEnv('python3') {
                     sh 'pylint ./app/app.py'
                 }
-                sh "docker run --rm -i hadolint/hadolint < Dockerfile"
             }
         }
 
