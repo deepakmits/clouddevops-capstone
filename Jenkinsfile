@@ -47,7 +47,7 @@ pipeline {
             steps {
                 echo 'Deploying application image to AWS ECR.'
                 sh "docker tag ${CAPSTONE_ML_APP} ${AWS_ECR_URI}:${VERSION}"
-                sh '$(aws ecr get-login --region us-west-2 --profile default --no-include-email)'
+                sh '$(aws ecr get-login --region us-west-2 --no-include-email)'
                 sh "docker push ${AWS_ECR_URI}"
             }
         }
