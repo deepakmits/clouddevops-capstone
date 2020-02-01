@@ -35,6 +35,8 @@ pipeline {
         stage('Build Image') {
             steps {
                 echo 'Building Image'
+                sh "sudo groupadd docker"
+                sh "sudo usermod -aG docker $USER"
                 sh "docker run hello-world"
                 sh "docker build --tag ${CAPSTONE_ML_APP}:${VERSION} ."
                 sh 'docker images'
