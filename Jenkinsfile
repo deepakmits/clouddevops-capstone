@@ -34,7 +34,7 @@ pipeline {
 
         stage('Build Image') {
             steps {
-                echo 'Building Image
+                echo 'Building Image'
                 sh "docker run hello-world"
                 sh "docker build --tag ${CAPSTONE_ML_APP}:${VERSION} ."
                 sh 'docker images'
